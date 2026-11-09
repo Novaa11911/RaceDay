@@ -1,0 +1,240 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "RaceDay.Part3/1.0.0": {
+        "dependencies": {
+          "Docker.DotNet": "3.125.15",
+          "Docker.DotNet.Enhanced": "4.3.3",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.22.1"
+        },
+        "runtime": {
+          "RaceDay.Part3.dll": {}
+        }
+      },
+      "Docker.DotNet/3.125.15": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "System.Buffers": "4.5.1",
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        }
+      },
+      "Docker.DotNet.Enhanced/4.3.3": {
+        "dependencies": {
+          "Docker.DotNet.Enhanced.Handler.Abstractions": "4.3.3",
+          "Docker.DotNet.Enhanced.LegacyHttp": "4.3.3",
+          "Docker.DotNet.Enhanced.NPipe": "4.3.3",
+          "Docker.DotNet.Enhanced.NativeHttp": "4.3.3",
+          "Docker.DotNet.Enhanced.Unix": "4.3.3",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.3",
+          "System.IO.Pipelines": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Docker.DotNet.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.3.1"
+          }
+        }
+      },
+      "Docker.DotNet.Enhanced.Handler.Abstractions/4.3.3": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.3"
+        },
+        "runtime": {
+          "lib/net8.0/Docker.DotNet.Handler.Abstractions.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.3.1"
+          }
+        }
+      },
+      "Docker.DotNet.Enhanced.LegacyHttp/4.3.3": {
+        "dependencies": {
+          "Docker.DotNet.Enhanced.Handler.Abstractions": "4.3.3"
+        },
+        "runtime": {
+          "lib/net8.0/Docker.DotNet.LegacyHttp.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.3.1"
+          },
+          "lib/net8.0/Microsoft.Net.Http.Client.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.3.1"
+          }
+        }
+      },
+      "Docker.DotNet.Enhanced.NativeHttp/4.3.3": {
+        "dependencies": {
+          "Docker.DotNet.Enhanced.Handler.Abstractions": "4.3.3"
+        },
+        "runtime": {
+          "lib/net8.0/Docker.DotNet.NativeHttp.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.3.1"
+          }
+        }
+      },
+      "Docker.DotNet.Enhanced.NPipe/4.3.3": {
+        "dependencies": {
+          "Docker.DotNet.Enhanced.Handler.Abstractions": "4.3.3"
+        },
+        "runtime": {
+          "lib/net8.0/Docker.DotNet.NPipe.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.3.1"
+          }
+        }
+      },
+      "Docker.DotNet.Enhanced.Unix/4.3.3": {
+        "dependencies": {
+          "Docker.DotNet.Enhanced.Handler.Abstractions": "4.3.3"
+        },
+        "runtime": {
+          "lib/net8.0/Docker.DotNet.Unix.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.3.1"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/8.0.3": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1325.6609"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.22.1": {},
+      "Newtonsoft.Json/13.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
+          }
+        }
+      },
+      "System.Buffers/4.5.1": {},
+      "System.IO.Pipelines/8.0.0": {},
+      "System.Threading.Tasks.Extensions/4.5.4": {}
+    }
+  },
+  "libraries": {
+    "RaceDay.Part3/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Docker.DotNet/3.125.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XN8FKxVv8Mjmwu104/Hl9lM61pLY675s70gzwSj8KR5pwblo8HfWLcCuinh9kYsqujBkMH4HVRCEcRuU6al4BQ==",
+      "path": "docker.dotnet/3.125.15",
+      "hashPath": "docker.dotnet.3.125.15.nupkg.sha512"
+    },
+    "Docker.DotNet.Enhanced/4.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nGicLwvd42FhRk+khY5uS6cx49ErNdwYKnYBg0F4m4BDKLp/R77AVmmN9xAiqI3W/wN5ZCHkdUhgxf5ORkZuFQ==",
+      "path": "docker.dotnet.enhanced/4.3.3",
+      "hashPath": "docker.dotnet.enhanced.4.3.3.nupkg.sha512"
+    },
+    "Docker.DotNet.Enhanced.Handler.Abstractions/4.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9Cp8hOgtynixcDoAs9lnEaQosluojSYmiW3fsLsLIVfZjlq/fznSIZNUhnmyT4Xo1Iyuok/y49WL/25O47u0Pw==",
+      "path": "docker.dotnet.enhanced.handler.abstractions/4.3.3",
+      "hashPath": "docker.dotnet.enhanced.handler.abstractions.4.3.3.nupkg.sha512"
+    },
+    "Docker.DotNet.Enhanced.LegacyHttp/4.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7j3M16emv9PAQN7VwFn23xLYNj8GJmwPOcogveHkaWnOCqiC+anRaNKQwqIBNApM1AuwZKivehTKTPmmrjUUnw==",
+      "path": "docker.dotnet.enhanced.legacyhttp/4.3.3",
+      "hashPath": "docker.dotnet.enhanced.legacyhttp.4.3.3.nupkg.sha512"
+    },
+    "Docker.DotNet.Enhanced.NativeHttp/4.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iNzK+jRFeEMobSA7l/h4ARwCKOOefOWtVN5/RB0ft6/6H6IQXvVUuOgGyZAjYLBT7TsyClRYno2B904f3dtBuQ==",
+      "path": "docker.dotnet.enhanced.nativehttp/4.3.3",
+      "hashPath": "docker.dotnet.enhanced.nativehttp.4.3.3.nupkg.sha512"
+    },
+    "Docker.DotNet.Enhanced.NPipe/4.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZTLYufuEfY0e6qLOgeH9QgXx2KYuoABRVaY5A8rsggyLgYqbDj9rCRfVAhHPCUv83S7pVxDHy+Tvm/BnxjWVpg==",
+      "path": "docker.dotnet.enhanced.npipe/4.3.3",
+      "hashPath": "docker.dotnet.enhanced.npipe.4.3.3.nupkg.sha512"
+    },
+    "Docker.DotNet.Enhanced.Unix/4.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ypo8qNbmvHw1t9VfpRTMogCw2vht6VjkXzlGYUUeP2H2bf83USURdla1maW1njn2oq2rfLUFOGMfmt+A37QU2w==",
+      "path": "docker.dotnet.enhanced.unix/4.3.3",
+      "hashPath": "docker.dotnet.enhanced.unix.4.3.3.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3iE7UF7MQkCv1cxzCahz+Y/guQbTqieyxyaWKhrRO91itI9cOKO76OHeQDahqG4MmW5umr3CcCvGmK92lWNlbg==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.2",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/8.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dL0QGToTxggRLMYY4ZYX5AMwBb+byQBd/5dMiZE07Nv73o6I5Are3C7eQTh7K2+A4ct0PVISSr7TZANbiNb2yQ==",
+      "path": "microsoft.extensions.logging.abstractions/8.0.3",
+      "hashPath": "microsoft.extensions.logging.abstractions.8.0.3.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.22.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EfYANhAWqmWKoLwN6bxoiPZSOfJSO9lzX+UrU6GVhLhPub1Hd+5f0zL0/tggIA6mRz6Ebw2xCNcIsM4k+7NPng==",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.22.1",
+      "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.22.1.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "path": "newtonsoft.json/13.0.1",
+      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+    },
+    "System.Buffers/4.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Rw7ijyl1qqRS0YQD/WycNst8hUUMgrMH4FCn1nNm27M4VxchZ1js3fVjQaANHO5f3sN4isvP4a+Met9Y4YomAg==",
+      "path": "system.buffers/4.5.1",
+      "hashPath": "system.buffers.4.5.1.nupkg.sha512"
+    },
+    "System.IO.Pipelines/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FHNOatmUq0sqJOkTx+UF/9YK1f180cnW5FVqnQMvYUN0elp6wFzbtPSiqbo1/ru8ICp43JM1i7kKkk6GsNGHlA==",
+      "path": "system.io.pipelines/8.0.0",
+      "hashPath": "system.io.pipelines.8.0.0.nupkg.sha512"
+    },
+    "System.Threading.Tasks.Extensions/4.5.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg==",
+      "path": "system.threading.tasks.extensions/4.5.4",
+      "hashPath": "system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+    }
+  }
+}
