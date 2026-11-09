@@ -1,0 +1,88 @@
+@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Sign in";
+}
+
+<div class="auth-wrap">
+    <div class="auth-panel">
+
+        <div class="auth-brand">
+            <span class="brand-mark">R</span>
+            <span>RaceDay</span>
+        </div>
+
+        <span class="eyebrow dark-eyebrow">WELCOME BACK</span>
+
+        <h1 class="h2 fw-bold mt-2">
+            Sign in to your account
+        </h1>
+
+        <p class="text-secondary">
+            Pick up where your next race begins.
+        </p>
+
+        @if (TempData["Success"] is string success)
+        {
+            <div class="alert alert-success">
+                @success
+            </div>
+        }
+
+        <div asp-validation-summary="ModelOnly"
+             class="alert alert-danger"
+             role="alert"></div>
+
+        <form asp-action="Login" method="post" class="mt-4">
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">
+                    Email address
+                </label>
+
+                <input asp-for="Email"
+                       class="form-control form-control-lg"
+                       placeholder="you@example.com"
+                       autocomplete="email" />
+
+                <span asp-validation-for="Email"
+                      class="text-danger small"></span>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="Password" class="form-label">
+                    Password
+                </label>
+
+                <input asp-for="Password"
+                       class="form-control form-control-lg"
+                       placeholder="Enter your password"
+                       autocomplete="current-password" />
+
+                <span asp-validation-for="Password"
+                      class="text-danger small"></span>
+            </div>
+
+            <button class="btn btn-dark btn-lg w-100"
+                    type="submit">
+                Sign in
+                <span class="ms-2">?</span>
+            </button>
+
+        </form>
+
+        <p class="text-secondary text-center mt-4 mb-0">
+            New to RaceDay?
+
+            <a asp-action="Register"
+               class="link-dark fw-semibold">
+                Create an account
+            </a>
+        </p>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

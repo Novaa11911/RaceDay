@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "API Connection Test";
+}
+
+<div class="container mt-4">
+    <h1>RaceDay API Connection Test</h1>
+
+    <p>
+        <strong>Status:</strong>
+        @ViewBag.ApiStatus
+    </p>
+
+    <h2>API Response</h2>
+
+    <pre class="border rounded p-3"
+         style="white-space: pre-wrap; overflow-wrap: anywhere;">@ViewBag.ApiResponse</pre>
+
+    <a asp-controller="Home"
+       asp-action="Index"
+       class="btn btn-secondary">
+        Back to Home
+    </a>
+</div>

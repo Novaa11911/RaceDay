@@ -1,0 +1,151 @@
+﻿@model JsonElement
+
+@{
+    ViewData["Title"] = "Event details";
+
+    string Read(string key) =>
+        Model.ValueKind == JsonValueKind.Object &&
+        Model.TryGetProperty(key, out var v)
+            ? v.ToString()
+            : "Not provided";
+}
+
+<section class="event-details-banner">
+    <div class="container py-5">
+
+        <a asp-action="Index" class="back-link">
+            ← Back to events
+        </a>
+
+        <div class="mt-4">
+            <span class="eyebrow">EVENT DETAILS</span>
+
+            <h1 class="display-5 fw-bold mt-2">
+                @Read("eventName")
+            </h1>
+
+            <p class="banner-description mb-0">
+                Review the event information before planning your entry.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<div class="container py-5">
+
+    <div class="row g-4">
+
+        <!-- EVENT INFORMATION -->
+
+        <div class="col-lg-8">
+
+            <div class="content-panel event-info-panel">
+
+                <div class="panel-heading">
+                    <div>
+                        <span class="eyebrow">OVERVIEW</span>
+                        <h2 class="h4 fw-bold mt-2">
+                            About this event
+                        </h2>
+                    </div>
+
+                    <span class="event-icon">🏁</span>
+                </div>
+
+                <p class="event-description">
+                    @Read("description")
+                </p>
+
+                <hr class="dark-divider" />
+
+                <h3 class="h6 fw-bold mb-4">
+                    Event information
+                </h3>
+
+                <div class="detail-grid">
+
+                    <div class="detail-item">
+                        <span class="detail-label">Date</span>
+                        <strong>@Read("eventDate")</strong>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">Start time</span>
+                        <strong>@Read("startTime")</strong>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">Location</span>
+                        <strong>
+                            @Read("location"), @Read("province")
+                        </strong>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">Status</span>
+                        <strong>
+                            <span class="status-pill">
+                                @Read("status")
+                            </span>
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ENTRY INFORMATION -->
+
+        <div class="col-lg-4">
+
+            <aside class="content-panel entry-panel">
+
+                <span class="eyebrow">
+                    ENTRY INFORMATION
+                </span>
+
+                <h2 class="h4 fw-bold mt-3">
+                    Your race starts here.
+                </h2>
+
+                <div class="fee-box mt-4">
+                    <span class="detail-label">Entry fee</span>
+
+                    <div class="fee-number mt-2">
+                        @Read("entryFee")
+                    </div>
+
+                    <span class="fee-caption">
+                        Entry fee shown by the API
+                    </span>
+                </div>
+
+                <div class="detail-line mt-4">
+                    <span>Maximum participants</span>
+                    <strong>@Read("maxParticipants")</strong>
+                </div>
+
+                <hr class="dark-divider" />
+
+                <p class="small text-secondary mt-3">
+                    Enrolment actions will be connected after
+                    confirming the API's enrolment request and
+                    response formats.
+                </p>
+
+                <a class="btn btn-raceday w-100 mt-2"
+                   asp-action="Index">
+                    Back to events
+                    <span class="ms-2">→</span>
+                </a>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</div>
