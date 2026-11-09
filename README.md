@@ -1,69 +1,50 @@
-# RaceDay API (PROG6212 Part 2 starter implementation)
+# RaceDay Part 3 — MVC Web Application
 
-ASP.NET Core Web API for managing race events, categories, participant enrolments and results. Built for .NET 8 with Entity Framework Core, SQL Server, JWT bearer authentication and Swagger.
-
-## Important before submission
-- This project is a generated implementation based on the supplied endpoint plan and SQL script. Build and test it locally, compare it against the full assessment rubric, and make sure you can explain the code in your own video.
-- The supplied SQL script uses sample users with fake password hashes. Do not use those sample password hashes to log in. Register fresh users through `/api/auth/register`.
-- For a quick local development setup, the connection string uses SQL Server LocalDB. If LocalDB is not installed, change it to your SQL Server instance in `RaceDay.API/appsettings.json`.
-- Change the development JWT key before any deployment. Do not commit production secrets to GitHub.
-- Role is accepted during public registration because the supplied endpoint plan explicitly includes it. For a real production application, Organiser privileges should be assigned by an administrator, not chosen by a public user.
+This is the initial ASP.NET Core MVC frontend for RaceDay Part 3. It uses Razor Views and Bootstrap and communicates with the existing Part 2 REST API through `RaceDayApiClient`. The MVC project does not access the database directly.
 
 ## Requirements
-- .NET 8 SDK
-- SQL Server LocalDB or another SQL Server instance
-- Visual Studio 2022 with ASP.NET and web development workload
+- .NET 8 SDK (local development)
+- The RaceDay Part 2 API running and reachable from the MVC app
+- Docker Desktop (optional container run)
 
-## Run in Visual Studio 2022
-1. Open `RaceDay.sln`.
-2. In Solution Explorer, right-click `RaceDay.API` and choose **Set as Startup Project**.
-3. Select the `RaceDay.API` (not Docker) launch profile.
-4. Restore NuGet packages, then build the solution.
-5. Create the database with EF Core migrations using Package Manager Console:
-   - Set Default project to `RaceDay.API`.
-   - Run `Add-Migration InitialCreate`.
-   - Run `Update-Database`.
-   If migrations are unavailable, install the EF Core Tools package compatible with EF Core 8, then repeat.
-6. Press Ctrl+F5. Swagger should open at the local `/swagger` address.
+## Configure the API URL
+Edit `appsettings.json` and set `RaceDayApi:BaseUrl` to the API's reachable base URL. For local development, `http://localhost:5080/` matches the Part 2 launch settings in the supplied code. From inside Docker, `localhost` refers to the MVC container, not your host or the API container. Set the value to the API service name on the same Docker network, for example `http://raceday-api:8080/`, or use `host.docker.internal` where appropriate.
 
-Alternative terminal commands from the folder containing `RaceDay.sln`:
-```powershell
-dotnet restore RaceDay.sln
-dotnet build RaceDay.sln
-dotnet tool install --global dotnet-ef --version 8.0.11
-dotnet ef migrations add InitialCreate --project RaceDay.API
-dotnet ef database update --project RaceDay.API
-dotnet run --project RaceDay.API
+## Run locally
+From this directory:
+
+```bash
+dotnet restore
+dotnet run
 ```
 
-## API routes
-- `POST /api/auth/register` — register account
-- `POST /api/auth/login` — login and receive JWT
-- `GET, PUT /api/users/profile` — own profile
-- `GET /api/categories` — public categories
-- `POST, PUT, DELETE /api/categories` — Organiser-only category management
-- `GET /api/events`, `GET /api/events/{id}` — public event browsing
-- `POST, PUT, DELETE /api/events` — Organiser-only event management
-- `POST /api/events/{id}/enrol` — Participant enrolment
-- `GET /api/events/{id}/enrolments` — Organiser views event enrolments
-- `GET /api/users/enrolments` — Participant's enrolments
-- `DELETE /api/enrolments/{id}` — Participant cancels own enrolment
-- `POST, PUT /api/enrolments/{id}/result` — Organiser captures/updates result
-- `GET /api/events/{id}/results` — public event results
-- `GET /api/users/results` — Participant's own results
+Open the URL printed by `dotnet run`.
 
-## Test
-Run `dotnet test RaceDay.sln`. The unit tests cover role validation and event-capacity rules. Test the full API manually in Swagger too, including invalid credentials and role restrictions.
+## Build and run with Docker
+Build the image:
 
-## Suggested Swagger demonstration
-1. Register a test Organiser, log in and copy the JWT.
-2. Click **Authorize** and enter the token as `Bearer YOUR_TOKEN` (Swagger's bearer scheme may ask for the token only).
-3. Create a category and an event.
-4. Register a Participant in a separate request and log in as that user.
-5. Authorize with the Participant token and enrol in the event.
-6. Switch back to the Organiser token and capture a result.
-7. Verify public event results and the Participant's own enrolments/results.
-8. Show the test results and GitHub Actions build.
+```bash
+docker build -t raceday-mvc .
+```
 
-## Design notes
-The database has both the `Events.CategoryId` relationship from the SQL script and the `Event_Categories` join table. The API currently creates a primary category and a matching join-table row to preserve the supplied design. The ERD and SQL script should be compared and reconciled if the lecturer expects the ERD to be the final authority.
+Run the MVC container with the API URL configured for your environment:
+
+```bash
+docker run --rm -p 8080:8080 -e RaceDayApi__BaseUrl=http://host.docker.internal:5080/ --name raceday-mvc raceday-mvc
+```
+
+Then open `http://localhost:8080`. If the API is also in Docker, put both containers on the same Docker network and use the API container/service name instead of `host.docker.internal`.
+
+## Current scope
+- Shared responsive RaceDay navigation and visual styling
+- Home page and event listing/detail pages reading event data from `GET /api/events`
+- Login and registration forms using `POST /api/auth/login` and `POST /api/auth/register`
+- API cookie forwarding from the MVC server to the API for subsequent requests
+- Graceful API connection/time-out messages
+- Dockerfile and container run instructions
+
+## Integration notes
+The current Part 2 API's login endpoint issues its own `RaceDay.Auth` cookie. This MVC client forwards the API cookie server-side. Do not expose the API cookie to browser JavaScript. Additional role-specific workflows (enrolment, category/result management, profile changes and image uploads) should be connected to the exact API request contracts and verified against the running API before submission.
+
+## Verification status
+This is a starter implementation and has not been compiled or run in this environment. Run `dotnet build` and test against the live Part 2 API before treating it as submission-ready.
